@@ -1,27 +1,52 @@
+import { useState, useEffect } from 'react';
 import arrowDown from 'assets/images/arrow-down.png';
 import shoppingCart from 'assets/images/shopping-cart.png';
-import { Wrapper, List, ListItem, Link, Icon, Container, CartIcon, Line } from './Navigation.styles';
+import { Nav, MenuToggleButton, Link, Icon, Container, CartIcon, Line, NavList } from './Navigation.styles';
 
 const Navigation = () => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [width, setWidth] = useState(window.innerWidth);
+
+    const handleWindowSizeChange = () => {
+        setWidth(window.innerWidth);
+    }
+
+    useEffect(() => {
+        window.addEventListener('resize', handleWindowSizeChange);
+
+        return () => {
+            window.removeEventListener('resize', handleWindowSizeChange);
+        }
+    }, []);
+
+    let isMobile = width >= 768 ? false : true;
+
     return ( 
         <>
-            <Wrapper>
-                <List>
-                    <ListItem>
+            {isMobile ? 
+                <MenuToggleButton isOpen={isOpen} onClick={() => setIsOpen(prevState => !prevState)}>
+                    <span />
+                    <span />
+                </MenuToggleButton>
+            : null}
+
+            <Nav isOpen={isOpen}>
+                <NavList>
+                    <Link>
                         <span>Category</span>
                         <Icon src={arrowDown} alt="arrow-down"/>
-                    </ListItem>
-                    <ListItem>
+                    </Link>
+                    <Link>
                         <span>Collection</span>
                         <Icon src={arrowDown} alt="arrow-down"/>
-                    </ListItem>
-                    <ListItem>
+                    </Link>
+                    <Link>
                         <Link href="#">Assistance</Link >
-                    </ListItem>
-                    <ListItem>
+                    </Link>
+                    <Link>
                         <Link href="#">Contacts</Link>
-                    </ListItem>
-                </List>
+                    </Link>
+                </NavList>
                 <Container>
                     <Link href="">
                         <CartIcon src={shoppingCart} alt="Shopping cart" />
@@ -31,8 +56,11 @@ const Navigation = () => {
                         <Icon src={arrowDown} alt="arrow-down" />
                     </Link>
                 </Container>
-            </Wrapper>
-        <Line></Line>
+            </Nav>
+        {!isMobile ? 
+            <Line></Line>
+            : null
+        }
         </>
      );
 }
