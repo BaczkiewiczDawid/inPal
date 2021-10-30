@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import arrowDown from 'assets/images/arrow-down.png';
 import shoppingCart from 'assets/images/shopping-cart.png';
 import { Nav, MenuToggleButton, Link, Icon, Container, CartIcon, Line, NavList } from './Navigation.styles';
+import NavigationLink from 'components/molecules/NavigationLink/NavigationLink';
 
 const Navigation = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -32,29 +33,16 @@ const Navigation = () => {
 
             <Nav isOpen={isOpen}>
                 <NavList>
-                    <Link>
-                        <span>Category</span>
-                        <Icon src={arrowDown} alt="arrow-down"/>
-                    </Link>
-                    <Link>
-                        <span>Collection</span>
-                        <Icon src={arrowDown} alt="arrow-down"/>
-                    </Link>
-                    <Link>
-                        <Link href="#">Assistance</Link >
-                    </Link>
-                    <Link>
-                        <Link href="#">Contacts</Link>
-                    </Link>
+                    <NavigationLink text={'Category'} icon={arrowDown}  />
+                    <NavigationLink text={'Collection'} icon={arrowDown} />
+                    <NavigationLink text={'Assistance'} link={'assistance'} />
+                    <NavigationLink text={'Contacts'} link={'contacts'} />
                 </NavList>
                 <Container>
                     <Link href="">
                         <CartIcon src={shoppingCart} alt="Shopping cart" />
                     </Link>
-                    <Link href="">
-                        <span>My account</span>
-                        <Icon src={arrowDown} alt="arrow-down" />
-                    </Link>
+                    <NavigationLink text={'My account'} icon={arrowDown} />
                 </Container>
             </Nav>
         {!isMobile ? 
