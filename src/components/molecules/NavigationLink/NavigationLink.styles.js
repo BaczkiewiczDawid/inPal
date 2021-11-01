@@ -21,7 +21,7 @@ export const Link = styled.a`
 
         &:nth-child(n+2) {
             margin-top: 0;
-            margin-left: 1.5rem;
+            margin-left: ${props => props.horizontal ? '1.5rem' : '0'};
         }
     }
 

@@ -12,12 +12,14 @@ const AppearAnimation = keyframes`
 export const Nav = styled.nav`
     display: ${({isOpen}) => isOpen ? 'block' : 'none'};
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-color: white;
-    position: absolute;
+    position: fixed;
+    overflow-y: hidden;
     left: 0;
     top: 0;
     animation: 0.3s ease-in-out 1 forwards ${AppearAnimation};
+    z-index: 999;
 
     @media screen and (min-width: 768px) {
         position: relative;
@@ -126,13 +128,14 @@ export const MenuToggleButton = styled.button`
   width: 40px;
   height: 40px;
   z-index: 9999;
-  position: absolute;
+  position: fixed;
   top: 20px;
   left: 20px;
   overflow-x: hidden;
   background-color: white;
   border: 2px solid black;
   cursor: pointer;
+  /* transition: .2s; */
 
   span:first-child {
     width: 100%;

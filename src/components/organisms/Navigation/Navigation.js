@@ -22,6 +22,13 @@ const Navigation = () => {
 
     let isMobile = width >= 768 ? false : true;
 
+    if (isOpen) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = 'visible'; 
+    }
+
+    
     return ( 
         <>
             {isMobile ? 
@@ -33,10 +40,10 @@ const Navigation = () => {
 
             <Nav isOpen={isOpen}>
                 <NavList>
-                    <NavigationLink text={'Category'} icon={arrowDown}  />
-                    <NavigationLink text={'Collection'} icon={arrowDown} />
-                    <NavigationLink text={'Assistance'} link={'assistance'} />
-                    <NavigationLink text={'Contacts'} link={'contacts'} />
+                    <NavigationLink text={'Category'} icon={arrowDown} horizontal />
+                    <NavigationLink text={'Collection'} icon={arrowDown} horizontal />
+                    <NavigationLink text={'Assistance'} link={'assistance'} horizontal />
+                    <NavigationLink text={'Contacts'} link={'contacts'} horizontal />
                 </NavList>
                 <Container>
                     <Link href="">
