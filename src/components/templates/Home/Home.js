@@ -5,7 +5,13 @@ import ProductsList from 'components/organisms/ProductsList/ProductsList';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    display: inline;
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (min-width: 768px) {
+        flex-direction: row;
+        margin-top: 1.5rem;
+    }
 `;
 
 const Home = () => {

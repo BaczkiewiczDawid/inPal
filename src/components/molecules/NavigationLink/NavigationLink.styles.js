@@ -17,19 +17,17 @@ export const Link = styled.a`
     }
 
     @media screen and (min-width: 768px) {
-        font-size: .9rem;
+        font-size: 1.2rem;
 
         &:nth-child(n+2) {
-            margin-top: 0;
+            margin-top: ${props => props.horizontal ? '0' : '1.4rem' };
             margin-left: ${props => props.horizontal ? '1.5rem' : '0'};
         }
     }
 
     @media screen and (min-width: 1024px) {
-        font-size: 1.2rem;
-
         &:nth-child(n+2) {
-            margin-left: 3rem;
+            margin-left: ${props => props.horizontal ? '3rem' : '0'};
         }
     }
 `;
