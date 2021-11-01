@@ -1,11 +1,11 @@
-import Navigation from 'components/organisms/Navigation/Navigation';
+import Home from 'components/templates/Home/Home'
 import GlobalStyle from 'assets/styles/GlobalStyles';
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <Navigation />
+      <Home />
     </>
 
   )
