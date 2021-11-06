@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import arrowDown from 'assets/images/arrow-down.png';
 import shoppingCart from 'assets/images/shopping-cart.png';
-import { Nav, MenuToggleButton, Link, Icon, Container, CartIcon, Line, NavList } from './Navigation.styles';
-import NavigationLink from 'components/molecules/NavigationLink/NavigationLink';
+import { Nav, MenuToggleButton, Link, Container, CartIcon, Line, NavList } from './Navigation.styles';
+import NavigationLink from 'components/atoms/NavigationLink/NavigationLink';
 
 const Navigation = () => {
     const [isOpen, setIsOpen] = useState(false);
