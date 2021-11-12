@@ -10,7 +10,7 @@ const AppearAnimation = keyframes`
 `;
 
 export const Nav = styled.nav`
-    display: ${({isOpen}) => isOpen ? 'block' : 'none'};
+    display: ${({isNavigationOpen}) => isNavigationOpen ? 'block' : 'none'};
     width: 100%;
     height: 100%;
     background-color: white;
@@ -32,6 +32,22 @@ export const Nav = styled.nav`
     }
 `;
 
+export const Wrapper = styled.li`
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  
+    &:nth-child(n+1) {
+      margin-left: 2.5rem;
+    }
+
+    &:nth-child(n+2) {
+      margin-left: 50px;
+    }
+  }
+`;
+
 export const NavList = styled.ul`
     list-style: none;
     padding: 0;
@@ -46,7 +62,6 @@ export const NavList = styled.ul`
     @media screen and (min-width: 768px) {
         flex-direction: row;
         margin: 0;
-        margin-top: 2rem;
     }
 `;
 
@@ -112,7 +127,8 @@ export const Line = styled.div`
     width: 100vw;
     height: 1px;
     background-color: #B0B0B0;
-    margin-top: 1.5rem;
+    top: 5.5rem;
+    position: absolute;
 `;
 
 export const NavButton = styled.button`
@@ -143,7 +159,7 @@ export const MenuToggleButton = styled.button`
     position: absolute;
     top: 0;
     left: 0;
-    transform: translateX(${({isOpen}) => isOpen ? 'calc(-100% - 2px)' : 0});
+    transform: translateX(${({isNavigationOpen}) => isNavigationOpen ? 'calc(-100% - 2px)' : 0});
     transition: transform ease-in-out 0.3s;
 
     &::before, &::after {
@@ -172,7 +188,7 @@ export const MenuToggleButton = styled.button`
     position: absolute;
     top: 0;
     left: calc(100% + 2px);
-    transform: translateX(${({isOpen}) => isOpen ? 'calc(-100% - 2px)' : 0});
+    transform: translateX(${({isNavigationOpen}) => isNavigationOpen ? 'calc(-100% - 2px)' : 0});
     transition: transform ease-in-out 0.3s;
 
     &::before, &::after {

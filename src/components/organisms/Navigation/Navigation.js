@@ -1,38 +1,34 @@
 import { useState, useEffect } from 'react';
 import arrowDown from 'assets/images/arrow-down.png';
 import shoppingCart from 'assets/images/shopping-cart.png';
-import { Nav, MenuToggleButton, Link, Icon, Container, CartIcon, Line, NavList } from './Navigation.styles';
-import NavigationLink from 'components/molecules/NavigationLink/NavigationLink';
+import { Nav, MenuToggleButton, Link, Container, CartIcon, Line, NavList, Wrapper } from './Navigation.styles';
+import NavigationLink from 'components/atoms/NavigationLink/NavigationLink';
+import { navItems } from 'data/navItems';
+import useMobile from 'hooks/useMobile';
+import DropdownMenu from 'components/molecules/DropdownMenu/DropdownMenu';
 
 const Navigation = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [width, setWidth] = useState(window.innerWidth);
+    const [isNavigationOpen, setIsNavigationOpen] = useState(false);
+    
+    const isMobile = useMobile();
 
-    const handleWindowSizeChange = () => {
-        setWidth(window.innerWidth);
-    }
+    const [isOpen, setIsOpen] = useState({
+        1: false,
+        2: false,
+    });
 
-    useEffect(() => {
-        window.addEventListener('resize', handleWindowSizeChange);
-
-        return () => {
-            window.removeEventListener('resize', handleWindowSizeChange);
-        }
-    }, []);
-
-    let isMobile = width >= 768 ? false : true;
-
-    if (isOpen) {
-        document.body.style.overflow = 'hidden';
-    } else {
-        document.body.style.overflow = 'visible'; 
+    const handleIsOpen = (id) => {
+        setIsOpen({
+            ...isOpen,
+            [id]: !isOpen[id],
+        })
     }
 
     
     return ( 
         <>
             {isMobile ? 
-                <MenuToggleButton isOpen={isOpen} onClick={() => setIsOpen(prevState => !prevState)}>
+                <MenuToggleButton isNavigationOpen={isNavigationOpen} onClick={() => setIsOpen(prevState => !prevState)}>
                     <span />
                     <span />
                 </MenuToggleButton>
@@ -40,10 +36,12 @@ const Navigation = () => {
 
             <Nav isOpen={isOpen}>
                 <NavList>
-                    <NavigationLink text={'Category'} icon={arrowDown} horizontal />
-                    <NavigationLink text={'Collection'} icon={arrowDown} horizontal />
-                    <NavigationLink text={'Assistance'} link={'assistance'} horizontal />
-                    <NavigationLink text={'Contacts'} link={'contacts'} horizontal />
+                    {navItems.map(({ text, icon, id }) => (
+                        <Wrapper>
+                            <NavigationLink text={text} icon={icon} id={id} onClick={() => handleIsOpen(id)} />
+                            {isOpen[id] ? <DropdownMenu id={id} /> : null}
+                        </Wrapper>
+                    ))}
                 </NavList>
                 <Container>
                     <Link href="">

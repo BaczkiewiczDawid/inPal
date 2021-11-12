@@ -18,9 +18,10 @@ export const Link = styled.a`
 
     @media screen and (min-width: 768px) {
         font-size: 1.2rem;
+        margin-top: 2rem;
 
         &:nth-child(n+2) {
-            margin-top: ${props => props.horizontal ? '0' : '1.4rem' };
+            margin-top: ${props => props.horizontal ? '2rem' : '1.4rem' };
             margin-left: ${props => props.horizontal ? '1.5rem' : '0'};
         }
     }
