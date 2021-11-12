@@ -3,7 +3,7 @@ import arrowDown from 'assets/images/arrow-down.png';
 import NavigationLink from 'components/atoms/NavigationLink/NavigationLink';
 import { Filter, StyledList } from './Filtets.styles';
 import DropdownMenu from 'components/molecules/DropdownMenu/DropdownMenu';
-import { navItems } from 'data/navItems';
+import { filterItems } from 'data/filterItems';
 import useMobile from 'hooks/useMobile';
 
 const Filters = () => {
@@ -28,7 +28,7 @@ const Filters = () => {
             {isMobile ? 
             <NavigationLink text={'Filter'} icon={arrowDown} /> : null }
             {!isMobile ? <StyledList>
-            {navItems.map(({ text, icon, id }) => (
+            {filterItems.map(({ text, icon, id }) => (
                 <>
                     <NavigationLink text={text} icon={icon} id={id} onClick={() => handleIsOpen(id)} />
                     {isOpen[id] ? <DropdownMenu id={id} /> : null}

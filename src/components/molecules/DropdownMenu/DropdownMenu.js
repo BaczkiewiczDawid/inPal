@@ -1,8 +1,8 @@
 import { StyledDropdown, StyledListItem } from './DropdownMenu.styles';
 
-const DropdownMenu = ({ id }) => {
+const DropdownMenu = ({ id, navigation }) => {
     return (    
-        <StyledDropdown>
+        <StyledDropdown navigation={navigation}>
             {id === 1 ?
                 <>
                     <StyledListItem>Boots</StyledListItem>

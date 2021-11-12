@@ -1,6 +1,6 @@
 import arrowDown from 'assets/images/arrow-down.png';
 
-export const navItems = [
+export const filterItems = [
     {
         id: 1,
         text: 'Category',
@@ -13,10 +13,12 @@ export const navItems = [
     },
     {
         id: 3,
-        text: 'Assistance',
+        text: 'Price',
+        icon: arrowDown,
     },
     {
         id: 4,
-        text: 'Contact',
+        text: 'Color',
+        icon: arrowDown,
     }
 ];
