@@ -18,7 +18,7 @@ export const Link = styled.a`
 
     @media screen and (min-width: 768px) {
         font-size: 1.2rem;
-        margin-top: 2rem;
+        margin-top: 0rem;
 
         &:nth-child(n+2) {
             margin-top: ${props => props.horizontal ? '2rem' : '1.4rem' };

@@ -22,13 +22,13 @@ export const Nav = styled.nav`
     z-index: 999;
 
     @media screen and (min-width: 768px) {
-        position: relative;
         display: flex;
         flex-direction: row;
-        height: auto;
+        align-items: center;
         justify-content: space-between;
-        width: 90vw;
-        margin: auto;
+        height: 4rem;
+        background-color: #fafafa;
+        border-bottom: 1px solid black;
     }
 `;
 
@@ -78,6 +78,7 @@ export const Link = styled.a`
 
     @media screen and (min-width: 768px) {
         font-size: .9rem;
+        margin: 0;
 
         &:nth-child(n+2) {
             margin-top: 0;
@@ -102,33 +103,26 @@ export const Icon = styled.img`
 
 export const Container = styled.div`
     position: absolute;
+    display: flex;
+    align-items: center;
     top: 1.8rem;
     right: 1.8rem;
 
     @media screen and (min-width: 768px) {
-        position: relative;
-        top: 0;
-        right: 0;
-        margin-top: 2rem;
+      position: inherit;
+      margin-top: -.5rem;
+      display: flex;
     }
 `;
 
 export const CartIcon = styled.img`
-    margin-right: 3rem;
+    margin-right: 1rem;
     width: 20px;
     height: auto;
 
     @media screen and (min-width: 768px) {
         margin-right: 1rem;
     }
-`;
-
-export const Line = styled.div`
-    width: 100vw;
-    height: 1px;
-    background-color: #B0B0B0;
-    top: 5.5rem;
-    position: absolute;
 `;
 
 export const NavButton = styled.button`
