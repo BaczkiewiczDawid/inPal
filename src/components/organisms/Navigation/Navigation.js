@@ -2,10 +2,9 @@ import { useState, useEffect } from 'react';
 import arrowDown from 'assets/images/arrow-down.png';
 import shoppingCart from 'assets/images/shopping-cart.png';
 import { Nav, MenuToggleButton, Link, Container, CartIcon, Line, NavList, Wrapper } from './Navigation.styles';
-import NavigationLink from 'components/atoms/NavigationLink/NavigationLink';
 import { navItems } from 'data/navItems';
 import useMobile from 'hooks/useMobile';
-import DropdownMenu from 'components/molecules/DropdownMenu/DropdownMenu';
+import NavigationLink from 'components/atoms/NavigationLink/NavigationLink';
 
 const Navigation = () => {
     const [isNavigationOpen, setIsNavigationOpen] = useState(false);
@@ -18,29 +17,27 @@ const Navigation = () => {
     });
 
     const handleIsOpen = (id) => {
-        setIsOpen({
-            ...isOpen,
-            [id]: !isOpen[id],
-        })
+        if (id === 1 || id === 2) {
+            setIsOpen({
+                ...isOpen,
+                [id]: !isOpen[id],
+            })
+        }
     }
-
-    
+   
     return ( 
         <>
             {isMobile ? 
-                <MenuToggleButton isNavigationOpen={isNavigationOpen} onClick={() => setIsOpen(prevState => !prevState)}>
+                <MenuToggleButton isNavigationOpen={isNavigationOpen} onClick={() => setIsNavigationOpen(prevState => !prevState)}>
                     <span />
                     <span />
                 </MenuToggleButton>
             : null}
 
-            <Nav isOpen={isOpen}>
+            <Nav isNavigationOpen={isNavigationOpen}>
                 <NavList>
-                    {navItems.map(({ text, icon, id }) => (
-                        <Wrapper>
-                            <NavigationLink text={text} icon={icon} id={id} onClick={() => handleIsOpen(id)} />
-                            {isOpen[id] ? <DropdownMenu id={id} /> : null}
-                        </Wrapper>
+                    {navItems.map(({ id, icon, text }) => (
+                        <NavigationLink icon={icon} id={id} text={text}>{text}</NavigationLink>
                     ))}
                 </NavList>
                 <Container>
@@ -50,10 +47,6 @@ const Navigation = () => {
                     <NavigationLink text={'My account'} icon={arrowDown} />
                 </Container>
             </Nav>
-        {!isMobile ? 
-            <Line></Line>
-            : null
-        }
         </>
      );
 }

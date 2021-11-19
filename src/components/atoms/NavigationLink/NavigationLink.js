@@ -1,10 +1,10 @@
-import { Link, Icon } from './NavigationLink.styles';
+import { Link } from './NavigationLink.style';
 
-const NavigationLink = ({ text, link, icon, horizontal, onClick, id }) => {
+const NavigationLink = ({ text, link, onClick, icon, id }) => {
     return ( 
-        <Link a href={link} horizontal={horizontal} onClick={onClick} id={id} >
-            {text ? <span text={text}>{text}</span> : null}
-            {icon ? <Icon src={icon} alt="arrow-down"/> : null}
+        <Link id={id}>
+            <a href={link} onClick={onClick}>{text}</a>
+            {icon ? <i src={icon}></i> : null}
         </Link>
      );
 }

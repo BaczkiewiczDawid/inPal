@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import arrowDown from 'assets/images/arrow-down.png';
-import NavigationLink from 'components/atoms/NavigationLink/NavigationLink';
+import FilterLink from 'components/atoms/FilterLink/FilterLink';
 import { Filter, StyledList } from './Filtets.styles';
 import DropdownMenu from 'components/molecules/DropdownMenu/DropdownMenu';
 import { filterItems } from 'data/filterItems';
@@ -26,11 +26,11 @@ const Filters = () => {
     return (
         <Filter> 
             {isMobile ? 
-            <NavigationLink text={'Filter'} icon={arrowDown} /> : null }
+            <FilterLink text={'Filter'} icon={arrowDown} /> : null }
             {!isMobile ? <StyledList>
             {filterItems.map(({ text, icon, id }) => (
                 <>
-                    <NavigationLink text={text} icon={icon} id={id} onClick={() => handleIsOpen(id)} />
+                    <FilterLink text={text} icon={icon} id={id} onClick={() => handleIsOpen(id)} />
                     {isOpen[id] ? <DropdownMenu id={id} /> : null}
                 </>
             ))}
