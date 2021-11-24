@@ -5,7 +5,7 @@ const Product = () => {
     return ( 
         <>
             {products.map((product) => (
-                <ProductWrapper>
+                <ProductWrapper to={`/item/${product.id}`}>
                     <StyledImg src={product.img} alt="" />
                     <StyledTitle>{product.name}</StyledTitle>
                     <Price>${product.price}</Price>

@@ -1,12 +1,15 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-export const ProductWrapper = styled.div`
+export const ProductWrapper = styled(Link)`
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 2rem;
     text-align: center;
     cursor: pointer;
+    text-decoration: none;
+    color: #2a2a2a;
 `;
 
 export const StyledImg = styled.img`
