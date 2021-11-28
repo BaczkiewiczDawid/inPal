@@ -4,12 +4,6 @@ export const Link = styled.a`
     display: flex;
     flex-direction: row;
     align-items: center;
-    
-    @media screen and (max-width: 767px) {
-        &:nth-child(n+2) {
-            margin-top: 2rem;
-        }
-    }
 
     @media screen and (min-width: 768px) {
         cursor: pointer;

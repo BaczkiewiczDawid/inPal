@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import arrowDown from 'assets/images/arrow-down.png';
 import shoppingCart from 'assets/images/shopping-cart.png';
-import { Nav, MenuToggleButton, Link, Container, CartIcon, Line, NavList, Wrapper } from './Navigation.styles';
+import { Nav, MenuToggleButton, Link, Container, CartIcon, NavList, Dropdown, DropdownButton, DropdownContent, DropdownLink } from './Navigation.styles';
 import { navItems } from 'data/navItems';
 import useMobile from 'hooks/useMobile';
 import NavigationLink from 'components/atoms/NavigationLink/NavigationLink';
+import DropdownMenu from 'components/molecules/DropdownMenu/DropdownMenu';
 
 const Navigation = () => {
     const [isNavigationOpen, setIsNavigationOpen] = useState(false);
@@ -12,8 +13,8 @@ const Navigation = () => {
     const isMobile = useMobile();
 
     const [isOpen, setIsOpen] = useState({
-        1: false,
-        2: false,
+        1: true,
+        2: true,
     });
 
     const handleIsOpen = (id) => {
@@ -22,9 +23,17 @@ const Navigation = () => {
                 ...isOpen,
                 [id]: !isOpen[id],
             })
+        } else {
+            setIsOpen({
+                ...isOpen,
+                3: false,
+                4: false,
+            })
         }
     }
    
+
+
     return ( 
         <>
             {isMobile ? 
@@ -36,8 +45,20 @@ const Navigation = () => {
 
             <Nav isNavigationOpen={isNavigationOpen}>
                 <NavList>
-                    {navItems.map(({ id, icon, text }) => (
-                        <NavigationLink icon={icon} id={id} text={text}>{text}</NavigationLink>
+                    {navItems.map(({ id, icon, text}) => (
+                        <Dropdown>
+                            <DropdownButton id={id} onClick={() => handleIsOpen(id)}>{text}{icon ? <img src={icon} alt="arrow-down" /> : null}</DropdownButton>
+                            {(id === 1 || id === 2) && !isMobile ? 
+                            <DropdownContent isOpen={!!isOpen[id]}>
+                                <DropdownLink href="#">Link 1</DropdownLink>
+                                <DropdownLink href="#">Link 2</DropdownLink>
+                                <DropdownLink href="#">Link 3</DropdownLink>
+                            </DropdownContent> : null}
+                            {(id === 1 || id === 2) && isMobile ?
+                            <DropdownContent isOpen={!!isOpen[id]}>
+                                <DropdownMenu id={id} />
+                            </DropdownContent> : null}   
+                        </Dropdown>
                     ))}
                 </NavList>
                 <Container>
