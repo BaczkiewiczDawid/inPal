@@ -15,5 +15,6 @@ export const Wrapper = styled.section`
         grid-gap: 70px;
         margin: 0;
         margin-right: 5vw;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 `;
