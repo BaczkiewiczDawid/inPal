@@ -7,13 +7,16 @@ export const navItems = [
         icon: arrowDown,
         subitem: [
             {
-                name: 'Sub1'
+                name: 'Boots'
             },
             {
-                name: 'Sub2'
+                name: 'Jackets and blazers'
             },
             {
-                name: 'Sub3'
+                name: 'Jeans and chinos'
+            },
+            {
+                name: 'Accessories'
             }
         ]
     },
@@ -23,13 +26,16 @@ export const navItems = [
         icon: arrowDown,
         subitem: [
             {
-                name: 'Sub1'
+                name: 'Spring'
             },
             {
-                name: 'Sub2'
+                name: 'Summer'
             },
             {
-                name: 'Sub3'
+                name: 'Autumn'
+            },
+            {
+                name: 'Winter'
             }
         ]
     },
