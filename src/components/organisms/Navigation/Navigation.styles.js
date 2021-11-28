@@ -12,7 +12,7 @@ const AppearAnimation = keyframes`
 export const Nav = styled.nav`
     display: ${({isNavigationOpen}) => isNavigationOpen ? 'block' : 'none'};
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background-color: white;
     position: fixed;
     overflow-y: hidden;
@@ -22,6 +22,7 @@ export const Nav = styled.nav`
     z-index: 999;
 
     @media screen and (min-width: 768px) {
+      position: static;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -62,6 +63,8 @@ export const NavList = styled.ul`
     @media screen and (min-width: 768px) {
         flex-direction: row;
         margin: 0;
+        align-items: center;
+        margin-left: 2rem;
     }
 `;
 
@@ -110,8 +113,8 @@ export const Container = styled.div`
 
     @media screen and (min-width: 768px) {
       position: inherit;
-      margin-top: -.5rem;
       display: flex;
+      margin-right: 4rem;
     }
 `;
 
@@ -202,5 +205,48 @@ export const MenuToggleButton = styled.button`
     &::after {
       transform: translate(-50%, -50%) rotate(-45deg);
     }
+  }
+`;
+
+export const Dropdown = styled.div`
+  overflow: hidden;
+  margin-left: 2rem;
+`;
+
+export const DropdownButton = styled.button`
+  cursor: pointer;
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: black;
+  background-color: transparent;
+  font-family: inherit;
+
+  @media screen and (max-width: 767px) {
+    margin-top: 1rem;
+  }
+`;
+
+export const DropdownContent = styled.div`
+  display: ${({isOpen}) => isOpen ? 'none' : 'block'};
+  position: relative;
+
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    background-color: white;
+    min-width: 128px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+`;
+
+export const DropdownLink = styled.a`
+  @media screen and (min-width: 768px) {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
   }
 `;
