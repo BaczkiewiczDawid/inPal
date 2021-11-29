@@ -5,9 +5,16 @@ import { Filter, StyledList } from './Filtets.styles';
 import DropdownMenu from 'components/molecules/DropdownMenu/DropdownMenu';
 import { filterItems } from 'data/filterItems';
 import useMobile from 'hooks/useMobile';
+import styled from 'styled-components';
 
 const Filters = () => {
     const isMobile = useMobile();
+
+    const [isFiltersOpen, setIsFiltersOpen] = useState(false);
+
+    const handleSetIsFilterOpen = () => {
+        setIsFiltersOpen(!isFiltersOpen);
+    }
 
     const [isOpen, setIsOpen] = useState({
         1: false,
@@ -23,10 +30,56 @@ const Filters = () => {
         })
     }
 
+    const FiltersWrapper = styled.div`
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: fixed;
+        background-color: #dbd7d7;
+        top: 5vh;
+        left: 5vw;
+        width: 90vw;
+        height: 90vh;
+        border: none;
+        box-shadow: 1px black;
+        z-index: 9999;
+    `;
+
+    const Button = styled.button`
+        width: 90%;
+        height: 5rem;
+        background-color: #e3ba40;
+        position: absolute;
+        bottom: 1rem;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        border: none;
+        color: #dbd7d7;
+        font-weight: 700;
+        font-size: 2rem;
+    `;
+
+    const FiltersContainer = styled.div`
+        margin-left: 3rem;
+
+        &:nth-child(n+1) {
+            margin-top: 1rem;
+        }
+    `;
+
     return (
         <Filter> 
             {isMobile ? 
-            <FilterLink text={'Filter'} icon={arrowDown} /> : null }
+            <FilterLink text={'Filter'} icon={arrowDown} onClick={handleSetIsFilterOpen} /> : null }
+            {isMobile && isFiltersOpen ? <FiltersWrapper>
+                {filterItems.map(({ text, icon, id }) => (
+                <FiltersContainer>
+                    <FilterLink text={text} icon={icon} id={id} onClick={() => handleIsOpen(id)} />
+                    {isOpen[id] ? <DropdownMenu id={id} /> : null}
+                </FiltersContainer>
+            ))}
+            <Button onClick={handleSetIsFilterOpen}>Save</Button>
+            </FiltersWrapper> : null}
             {!isMobile ? <StyledList>
             {filterItems.map(({ text, icon, id }) => (
                 <>
