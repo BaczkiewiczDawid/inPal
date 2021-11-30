@@ -26,6 +26,10 @@ const Filters = () => {
     const handleIsOpen = (id) => {
         setIsOpen({
             ...isOpen,
+            1: false,
+            2: false,
+            3: false,
+            4: false,
             [id]: !isOpen[id],
         })
     }
@@ -33,13 +37,12 @@ const Filters = () => {
     const FiltersWrapper = styled.div`
         display: flex;
         flex-direction: column;
-        justify-content: center;
         position: fixed;
         background-color: #dbd7d7;
-        top: 5vh;
-        left: 5vw;
-        width: 90vw;
-        height: 90vh;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
         border: none;
         box-shadow: 1px black;
         z-index: 9999;
