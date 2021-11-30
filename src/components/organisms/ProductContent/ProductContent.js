@@ -1,15 +1,22 @@
 import { Content, Title, Price, ProductDescription, Size, Select, Option, Button } from './ProductContent.style';
 import { useParams } from 'react-router-dom';
-import products from 'data/Products';
+// import products from 'data/Products';
+import useFetch from 'hooks/useFetch';
 
 const ProductContent = () => {
     const { id } = useParams();
 
-    return ( 
-        <Content>
-                <Title>{products[id - 1].name}</Title>
-                <Price>${products[id - 1].price}</Price>
-                <ProductDescription>{products[id - 1].description}</ProductDescription>
+    const products = useFetch();
+    const product = products.find(productID => productID.id === id);
+    console.log(product);
+
+    return (
+        <>
+        { product ?
+            <Content>
+                <Title>{product.title}</Title>
+                <Price>${product.price}</Price>
+                <ProductDescription>{product.description}</ProductDescription>
                 <Size>
                     <Title>Choose size</Title>
                     <Select name="sizes">
@@ -21,7 +28,10 @@ const ProductContent = () => {
                     </Select>
                 </Size>
                 <Button>Add to cart</Button>
-        </Content>
+            </Content>
+        : null} 
+        
+        </>
      );
 }
  

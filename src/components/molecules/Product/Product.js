@@ -1,14 +1,16 @@
-import products from 'data/Products';
 import { ProductWrapper, StyledImg, StyledTitle, Price } from './Product.style';
+import useFetch from 'hooks/useFetch';
 
 const Product = () => {
+    const products = useFetch();
+    
     return ( 
         <>
-            {products.map((product) => (
-                <ProductWrapper to={`/item/${product.id}`}>
-                    <StyledImg src={product.img} alt="" />
-                    <StyledTitle>{product.name}</StyledTitle>
-                    <Price>${product.price}</Price>
+            {products.filter(product => product.title.toLowerCase().includes('')).map(({ id, title, price, image}) => (
+                <ProductWrapper to={`/item/${id}`}>
+                    <StyledImg src={image.url} alt="" />
+                    <StyledTitle>{title}</StyledTitle>
+                    <Price>${price}</Price>
                 </ProductWrapper>
             ))}
         </>
