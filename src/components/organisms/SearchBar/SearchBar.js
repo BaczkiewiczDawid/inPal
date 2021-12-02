@@ -1,13 +1,10 @@
-import { useState } from 'react';
+import React from 'react';
 import searchIcon from 'assets/images/search-icon.png';
 import { StyledTitle, StyledInput, SearchIcon, InputWrapper, Wrapper } from './SearchBar.style';
 
-const SearchBar = () => {
-    const [search, setSearch] = useState('');
-
+const SearchBar = ({ setSearch }) => {
     const handleSetSearch = (e) => {
         setSearch(e.target.value);
-        console.log(search);
     }
 
     return ( 
@@ -20,5 +17,5 @@ const SearchBar = () => {
         </Wrapper>
      );
 }
- 
+
 export default SearchBar;

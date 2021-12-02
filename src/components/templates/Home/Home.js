@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Navigation from 'components/organisms/Navigation/Navigation';
 import SearchBar from 'components/organisms/SearchBar/SearchBar';
 import Filters from 'components/organisms/Filters/Filters';
@@ -15,13 +16,17 @@ const Wrapper = styled.div`
 `;
 
 const Home = () => {
+    const [search, setSearch] = useState('');
+
+    console.log(`Home: ${search}`)
+
     return ( 
         <>
             <Navigation />
-            <SearchBar />
+            <SearchBar setSearch={setSearch} />
             <Wrapper>
                 <Filters />
-                <ProductsList />
+                <ProductsList search={search} />
             </Wrapper>
         </>
      );
