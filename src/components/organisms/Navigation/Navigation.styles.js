@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const AppearAnimation = keyframes`
   from {
@@ -69,7 +70,7 @@ export const NavList = styled.ul`
 `;
 
 
-export const Link = styled.a`
+export const LinkItem = styled(Link)`
     text-decoration: none;
     color: #2a2a2a;
     font-size: 1.5rem;
