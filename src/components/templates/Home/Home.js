@@ -18,8 +18,6 @@ const Wrapper = styled.div`
 const Home = () => {
     const [search, setSearch] = useState('');
 
-    console.log(`Home: ${search}`)
-
     return ( 
         <>
             <Navigation />
