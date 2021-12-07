@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import Navigation from 'components/organisms/Navigation/Navigation';
 import useFetch from 'hooks/useFetch';
 import { Wrapper } from './ShoppingCart.style'
@@ -9,15 +10,25 @@ const ShoppingCart = ({ shoppingCart }) => {
     const products = useFetch();
     const cart = shoppingCart.map((el) => el.id);
 
+    const [productsPrice, setProductsPrice] = useState(0);
+
+    const product = products.filter(({id}) => cart.includes(id)).map((item) => item.price)
+
+    useEffect(() => {
+        if (product.length > 0) {
+            setProductsPrice(product.reduce((a, b) => a + b))
+        }
+    }, [product])
+
     return ( 
         <>
             <Navigation />
             <Wrapper>
             {products.filter(({id}) => cart.includes(id)).map((item) => (
-                <ShoppingCartItem item={item} />
+                <ShoppingCartItem item={item} cart={cart} />
             ))}
             </Wrapper>
-            <SummaryContainer />
+            <SummaryContainer productsPrice={productsPrice} />
         </>
      );
 }

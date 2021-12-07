@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Content, Title, Price, ProductDescription, Size, Select, Option, Button } from './ProductContent.style';
 import { useParams } from 'react-router-dom';
 import useFetch from 'hooks/useFetch';
@@ -19,10 +18,6 @@ const ProductContent = ({ shoppingCart, setShoppingCart }) => {
         ]);
     }
 
-    const showCart = () => {
-        console.log(shoppingCart)
-    }
-
     return (
         <>
         { product ?
@@ -41,7 +36,6 @@ const ProductContent = ({ shoppingCart, setShoppingCart }) => {
                     </Select>
                 </Size>
                 <Button onClick={addToCart}>Add to cart</Button>
-                <button onClick={showCart}>Show cart</button>
             </Content>
         : null} 
         
