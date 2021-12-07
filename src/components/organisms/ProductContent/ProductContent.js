@@ -1,14 +1,27 @@
+import { useState } from 'react';
 import { Content, Title, Price, ProductDescription, Size, Select, Option, Button } from './ProductContent.style';
 import { useParams } from 'react-router-dom';
-// import products from 'data/Products';
 import useFetch from 'hooks/useFetch';
 
-const ProductContent = () => {
+const ProductContent = ({ shoppingCart, setShoppingCart }) => {
     const { id } = useParams();
 
     const products = useFetch();
     const product = products.find(productID => productID.id === id);
-    console.log(product);
+
+
+    const addToCart = () => {
+        setShoppingCart((prevState) => [
+            ...prevState,
+            {
+                id: id,
+            },
+        ]);
+    }
+
+    const showCart = () => {
+        console.log(shoppingCart)
+    }
 
     return (
         <>
@@ -27,7 +40,8 @@ const ProductContent = () => {
                         <Option value="xxl">XXL</Option>
                     </Select>
                 </Size>
-                <Button>Add to cart</Button>
+                <Button onClick={addToCart}>Add to cart</Button>
+                <button onClick={showCart}>Show cart</button>
             </Content>
         : null} 
         

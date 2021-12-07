@@ -3,8 +3,6 @@ import useFetch from 'hooks/useFetch';
 
 const Product = ({ search }) => {
     const products = useFetch();
-
-    console.log(search);
     
     return ( 
         <>

@@ -1,5 +1,7 @@
 import Navigation from 'components/organisms/Navigation/Navigation';
 import jacket from 'assets/images/jacket.png';
+import { useParams } from 'react-router-dom';
+import useFetch from 'hooks/useFetch';
 import styled from 'styled-components';
 import useMobile from 'hooks/useMobile';
 
@@ -111,14 +113,27 @@ const Button = styled.button`
     margin-bottom: 1rem;
 `;
 
-const ShoppingCart = () => {
+const ShoppingCart = ({ shoppingCart }) => {
     const isMobile = useMobile();
+    const { id } = useParams();
+
+    const products = useFetch();
+    console.log(shoppingCart.map((el) => el.id))
 
     return ( 
         <>
             <Navigation />
             <Wrapper>
-                <Item>
+            <Item>
+                <ItemImage src={jacket} alt="jacket" />
+                <Info>
+                    <Title>Jacket title</Title>
+                    <span>Rozmiar: M</span>
+                    <Price>$39.99</Price>
+                    {!isMobile ? <Delete>Delete</Delete> : null}
+                </Info>
+            </Item>
+            {/* <Item>
                 <ItemImage src={jacket} alt="jacket" />
                 <Info>
                     <Title>Jacket title</Title>
@@ -153,16 +168,7 @@ const ShoppingCart = () => {
                     <Price>$39.99</Price>
                     {!isMobile ? <Delete>Delete</Delete> : null}
                 </Info>
-            </Item>
-            <Item>
-                <ItemImage src={jacket} alt="jacket" />
-                <Info>
-                    <Title>Jacket title</Title>
-                    <span>Rozmiar: M</span>
-                    <Price>$39.99</Price>
-                    {!isMobile ? <Delete>Delete</Delete> : null}
-                </Info>
-            </Item>
+            </Item> */}
             </Wrapper>
             <Summary>
                 <InfoContainer>

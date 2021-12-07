@@ -3,13 +3,15 @@ import { Wrapper } from './Item.style';
 import ProductContent from 'components/organisms/ProductContent/ProductContent';
 import ProductImage from 'components/molecules/ProductImage/ProductImage';
 
-const Item = () => {
+const Item = ({ shoppingCart, setShoppingCart }) => {
+
+
     return (
         <>
         <Navigation />  
         <Wrapper>
             <ProductImage />
-            <ProductContent />
+            <ProductContent shoppingCart={shoppingCart} setShoppingCart={setShoppingCart} />
         </Wrapper>
         </>
      );
