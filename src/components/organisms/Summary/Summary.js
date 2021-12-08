@@ -2,6 +2,7 @@ import { SummaryContainer, InfoContainer, Subtitle, Amount, Button } from './Sum
 
 const Summary = ({ productsPrice }) => {
     const shippingCost = productsPrice >= 100 ? 0 : 4.99;
+    const totalPrice = (parseFloat(productsPrice) + parseFloat(shippingCost)).toFixed(2)
 
     return ( 
         <SummaryContainer>
@@ -15,7 +16,7 @@ const Summary = ({ productsPrice }) => {
             </InfoContainer>
             <InfoContainer>
                 <Subtitle>Total</Subtitle>
-                <Amount>${parseFloat(productsPrice.toFixed(2)) + parseFloat(shippingCost)}</Amount>
+                <Amount>${totalPrice}</Amount>
             </InfoContainer>
             <Button>Go to checkout</Button>
         </SummaryContainer>
