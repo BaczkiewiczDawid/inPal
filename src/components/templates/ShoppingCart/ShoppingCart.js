@@ -8,7 +8,8 @@ import ShoppingCartItem from 'components/molecules/ShoppingCartItem/ShoppingCart
 
 const ShoppingCart = ({ shoppingCart }) => {
     const products = useFetch();
-    const cart = shoppingCart.map((el) => el.id);
+    const initialCart = shoppingCart.map((el) => el.id);
+    const [cart, setCart] = useState(initialCart)
 
     const [productsPrice, setProductsPrice] = useState(0);
 
@@ -25,7 +26,7 @@ const ShoppingCart = ({ shoppingCart }) => {
             <Navigation />
             <Wrapper>
             {products.filter(({id}) => cart.includes(id)).map((item) => (
-                <ShoppingCartItem item={item} cart={cart} />
+                <ShoppingCartItem item={item} cart={cart} setCart={setCart} />
             ))}
             </Wrapper>
             <SummaryContainer productsPrice={productsPrice} />
