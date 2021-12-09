@@ -10,6 +10,13 @@ const AppearAnimation = keyframes`
   }
 `;
 
+export const Logo = styled.img`
+  width: 60px;
+  height: 60px;
+  margin-right: 2rem;
+  cursor: pointer;
+`;
+
 export const Nav = styled.nav`
     display: ${({isNavigationOpen}) => isNavigationOpen ? 'block' : 'none'};
     width: 100%;

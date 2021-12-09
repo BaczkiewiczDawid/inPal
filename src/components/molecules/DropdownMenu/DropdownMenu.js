@@ -1,4 +1,21 @@
 import { StyledDropdown, StyledListItem } from './DropdownMenu.styles';
+import styled from 'styled-components';
+import colorsList from 'data/colorsList';
+
+const ColorsWrapper = styled.div`
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+`;
+
+const ColorPicker = styled.div`
+    width: 40px;
+    height: 40px;
+    background-color: ${({ color }) => color };
+    margin: 5px;
+    cursor: pointer;
+`;
 
 const DropdownMenu = ({ id, navigation, isOpen }) => {
     return (    
@@ -19,8 +36,16 @@ const DropdownMenu = ({ id, navigation, isOpen }) => {
                     <StyledListItem>Winter</StyledListItem>
                 </>
             : null }
-            {id === 3 ? <input type="range" min="0" max="2000" /> : null} 
-            {id === 4 ? <input type="color" /> : null}
+            {id === 3 ? 
+                <input type="range" min="0" max="2000" />
+            : null} 
+            {id === 4 ? 
+                <ColorsWrapper>
+                    {colorsList.map((color) => (
+                        <ColorPicker color={color.value} />
+                    ))}
+                </ColorsWrapper>
+            : null}
         </StyledDropdown>
     )
 };
