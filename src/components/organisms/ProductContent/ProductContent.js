@@ -8,7 +8,6 @@ const ProductContent = ({ shoppingCart, setShoppingCart }) => {
     const products = useFetch();
     const product = products.find(productID => productID.id === id);
 
-
     const addToCart = () => {
         setShoppingCart((prevState) => [
             ...prevState,
@@ -38,7 +37,6 @@ const ProductContent = ({ shoppingCart, setShoppingCart }) => {
                 <Button onClick={addToCart}>Add to cart</Button>
             </Content>
         : null} 
-        
         </>
      );
 }
