@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Select from 'react-select';
 
 export const Content = styled.div`
     margin-top: 2rem;
@@ -57,10 +58,12 @@ export const Size = styled.h2`
     }
 `;
 
-export const Select = styled.select`
+export const StyledSelect = styled(Select)`
     background-color: transparent;
     border: none;
     font-weight: 700;
+    width: 120px;
+    font-size: .7rem;
 `;
 
 export const Option = styled.option`
