@@ -14,7 +14,7 @@ const ShoppingCartItem = ({ item, cart, setCart }) => {
             <ItemImage src={item.image.url} alt="jacket" />
             <Info>
                 <Title>{item.title}</Title>
-                <span>Rozmiar: M</span>
+                <span>Size: <b>{item.size}</b></span>
                 <Price>${item.price}</Price>
                 {!isMobile ? <Delete onClick={deleteItem}>Delete</Delete> : null}
             </Info>

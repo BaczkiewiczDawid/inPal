@@ -24,11 +24,18 @@ const ShoppingCart = ({ shoppingCart }) => {
 
     const filteredProducts = products.filter(({id}) => cart.includes(id));
 
+    const size = shoppingCart.map((el) => ({size: el.size}));
+
+    const filteredProductsWithSize = filteredProducts.map((product, i) => ({
+        ...product,
+        ...size[i]
+    }));
+
     return ( 
         <>
             <Navigation />
             <Wrapper>
-            {filteredProducts.map((item) => (
+            {filteredProductsWithSize.map((item) => (
                 <ShoppingCartItem item={item} cart={cart} setCart={setCart} />
             ))}
             </Wrapper>
