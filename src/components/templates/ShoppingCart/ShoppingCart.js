@@ -39,7 +39,7 @@ const ShoppingCart = ({ shoppingCart }) => {
                 <ShoppingCartItem item={item} cart={cart} setCart={setCart} />
             ))}
             </Wrapper>
-            <SummaryContainer productsPrice={productsPrice} />
+            <SummaryContainer productsPrice={productsPrice} product={product} />
         </>
      );
 }

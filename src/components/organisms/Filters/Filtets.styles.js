@@ -22,7 +22,7 @@ export const FiltersWrapper = styled.div`
 display: flex;
 flex-direction: column;
 position: fixed;
-background-color: #dbd7d7;
+background-color: #fafafa;
 top: 0;
 left: 0;
 width: 100vw;

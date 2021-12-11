@@ -1,20 +1,27 @@
 import { StyledDropdown, StyledListItem } from './DropdownMenu.styles';
 import styled from 'styled-components';
 import colorsList from 'data/colorsList';
+import Select from 'react-select';
 
 const ColorsWrapper = styled.div`
     width: auto;
     height: auto;
     display: flex;
     flex-wrap: wrap;
+    max-width: 70vw;
+    margin-left: -1.5rem;
+
+    @media screen and (min-width: 768px) {
+        max-width: 15vw;
+    }
 `;
 
-const ColorPicker = styled.div`
-    width: 40px;
-    height: 40px;
-    background-color: ${({ color }) => color };
-    margin: 5px;
-    cursor: pointer;
+const StyledSelect = styled(Select)`
+    width: 70vw;
+
+    @media screen and (min-width: 768px) {
+        width: 15vw;
+    }
 `;
 
 const DropdownMenu = ({ id, navigation, isOpen }) => {
@@ -41,9 +48,10 @@ const DropdownMenu = ({ id, navigation, isOpen }) => {
             : null} 
             {id === 4 ? 
                 <ColorsWrapper>
-                    {colorsList.map((color) => (
+                    <StyledSelect isMulti options={colorsList} />
+                    {/* {colorsList.map((color) => (
                         <ColorPicker color={color.value} />
-                    ))}
+                    ))} */}
                 </ColorsWrapper>
             : null}
         </StyledDropdown>
