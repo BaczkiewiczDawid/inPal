@@ -1,8 +1,22 @@
-import { SummaryContainer, InfoContainer, Subtitle, Amount, Button } from './Summary.style';
+import { SummaryContainer, InfoContainer, Subtitle, Amount, Button, StyledLink } from './Summary.style';
+import { Link } from 'react-router-dom';
 
-const Summary = ({ productsPrice }) => {
+const Summary = ({ productsPrice, product }) => {
     const shippingCost = productsPrice >= 100 ? 0 : 4.99;
-    const totalPrice = (parseFloat(productsPrice) + parseFloat(shippingCost)).toFixed(2)
+    let totalPrice = (parseFloat(productsPrice) + parseFloat(shippingCost)).toFixed(2)
+
+    let isButtonEnabled = true;
+
+    if (product.length <= 0) {
+        totalPrice = 4.99;
+        productsPrice = 0;
+    }
+
+    if (productsPrice > 0) {
+        isButtonEnabled = true;
+    } else {
+        isButtonEnabled = false;
+    }
 
     return ( 
         <SummaryContainer>
@@ -18,7 +32,11 @@ const Summary = ({ productsPrice }) => {
                 <Subtitle>Total</Subtitle>
                 <Amount>${totalPrice}</Amount>
             </InfoContainer>
-            <Button>Go to checkout</Button>
+            {isButtonEnabled ?
+            <Link to="/checkout">
+                <Button>Go to checkout</Button>
+            </Link>
+            : <Button isButtonEnabled={isButtonEnabled} disabled>Go to checkout</Button>}
         </SummaryContainer>
      );
 }

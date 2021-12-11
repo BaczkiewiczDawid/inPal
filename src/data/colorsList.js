@@ -1,34 +1,34 @@
 const colorsList = [
     {
-        "name": "blue",
+        "label": "blue",
         "value": "#148fe0"
     },
     {
-        "name": "red",
+        "label": "red",
         "value": "#ff3030"
     },
     {
-        "name": "white",
+        "label": "white",
         "value": "#ebe6e6"
     },
     {
-        "name": "black",
+        "label": "black",
         "value": "#171717"
     },
     {
-        "name": "yellow",
+        "label": "yellow",
         "value": "#f0ed54"
     },
     {
-        "name": "orange",
+        "label": "orange",
         "value": "#f5ad3b"
     },
     {
-        "name": "green",
+        "label": "green",
         "value": "#2bc442"
     },
     {
-        "name": "gray",
+        "label": "gray",
         "value": "#8e948f"
     },
 ];

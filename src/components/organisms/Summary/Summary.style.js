@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
 
 export const SummaryContainer = styled.div`
     display: flex;
@@ -46,6 +48,6 @@ export const Button = styled.button`
     cursor: pointer;
     margin-top: 2rem;
     font-size: 1rem;
-    width: 85%;
+    width: 34vw;
     margin-bottom: 1rem;
 `;
