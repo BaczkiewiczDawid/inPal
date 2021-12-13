@@ -1,11 +1,10 @@
 import { TotalContainer, Title, Label, RadioButton, Button, PaymentContainer } from './Payments.style';
 import { Link } from 'react-router-dom';
 
-const Payments = () => {
+const Payments = ({ selectedPayment, setSelectedPayment }) => {
     const paymentMethods = [
         {
             name: 'Blik',
-            checked: true
         },
         {
             name: 'Przelewy24'
@@ -21,7 +20,6 @@ const Payments = () => {
                 {
                     name: 'DHL',
                     price: 4.99,
-                    checked: true
                 },
                 {
                     name: 'DPD',
@@ -46,13 +44,20 @@ const Payments = () => {
         }
     ]
 
+    const handleSetPayment = (e) => {
+        setSelectedPayment({
+            ...selectedPayment,
+            [e.target.name]: e.target.value
+        })
+    }
+
     return ( 
         <TotalContainer>
             <Title>Payment Method</Title>
             {paymentMethods.map((el) => (
                 <PaymentContainer>
                     <Label>{el.name}</Label>
-                    <RadioButton type="radio" name="payment" checked={el.checked} />
+                    <RadioButton type="radio" name="payment" value={el.name} onClick={(e) => handleSetPayment(e)} />
                 </PaymentContainer>
             ))}
             <Title secondary>Shipping Method</Title>
@@ -60,17 +65,17 @@ const Payments = () => {
             {shippingMethods[0].online.map((el) => (
                 <PaymentContainer>
                     <Label>{el.name}</Label>
-                    <RadioButton type="radio" name="shipping" checked={el.checked} />
+                    <RadioButton type="radio" name="shipping" value={el.name} onClick={(e) => handleSetPayment(e)} />
                 </PaymentContainer>
             ))}
             <Label primary>Cash on delivery</Label>
             {shippingMethods[0].cash.map((el) => (
                 <PaymentContainer>
                     <Label>{el.name}</Label>
-                    <RadioButton type="radio" name="shipping" />
+                    <RadioButton type="radio" name="shipping" value={el.name} onClick={(e) => handleSetPayment(e)} />
                 </PaymentContainer>
             ))}
-            <Link to="/summary">
+            <Link to="/order-confirmation">
                 <Button>Order &amp; Summary</Button> 
             </Link>
         </TotalContainer>

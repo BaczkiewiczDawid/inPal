@@ -1,9 +1,6 @@
-import { useState } from 'react';
-import { Form, Input, Button, Label } from './ShippingInformations.style';
+import { Input, Button, Label } from './ShippingInformations.style';
 
-const ShippingInformations = ({getInputValue, nextCart}) => {
-
-
+const ShippingInformations = ({ getInputValue, nextCart }) => {
     const requiredInformations = [
         {
             label: 'Name',

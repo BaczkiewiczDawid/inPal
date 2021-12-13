@@ -16,7 +16,7 @@ const ShoppingCartItem = ({ item, cart, setCart }) => {
                 <Title>{item.title}</Title>
                 <span>Size: <b>{item.size}</b></span>
                 <Price>${item.price}</Price>
-                {!isMobile ? <Delete onClick={deleteItem}>Delete</Delete> : null}
+                <Delete onClick={deleteItem}>Delete</Delete>
             </Info>
         </Item>
      );
