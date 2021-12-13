@@ -4,7 +4,7 @@ import { StyledTitle, StyledInput, SearchIcon, InputWrapper, Wrapper } from './S
 
 const SearchBar = ({ setSearch }) => {
     const handleSetSearch = (e) => {
-        setSearch(e.target.value);
+        setSearch((e.target.value).toLowerCase());
     }
 
     return ( 

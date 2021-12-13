@@ -23,7 +23,8 @@ export const Item = styled.div`
 `;
 
 export const Title = styled.h2`
-    font-size: 1.5rem;
+    font-size: .8rem;
+    margin-left: .8rem;
 
     @media screen and (min-width: 768px) {
         font-size: 1.2rem;
@@ -45,7 +46,9 @@ export const Info = styled.div`
 `;
 
 export const Price = styled.span`
-    margin-top: 1rem;
+    @media screen and (min-width: 1000px) {
+        margin-top: 1rem;
+    }
 `;
 
 export const Delete = styled.span`

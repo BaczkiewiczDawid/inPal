@@ -48,6 +48,10 @@ export const Button = styled.button`
     cursor: pointer;
     margin-top: 2rem;
     font-size: 1rem;
-    width: 34vw;
+    width: 90vw;
     margin-bottom: 1rem;
+
+    @media screen and (min-width: 768px) {
+        width: 34vw;
+    }
 `;

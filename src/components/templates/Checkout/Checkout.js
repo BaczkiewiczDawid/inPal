@@ -32,15 +32,7 @@ const Form = styled.form`
     }
 `;
 
-const Checkout = () => {
-    const [inputValues, setInputValues] = useState({
-        name: '',
-        address: '',
-        postcode: '',
-        phone: '',
-        email: '',
-    })
-
+const Checkout = ({ inputValues, setInputValues, setSelectedPayment, selectedPayment }) => {
     const [currentPage, setCurrentPage] = useState(1)
 
     const getInputValue = (e) => {
@@ -67,7 +59,7 @@ const Checkout = () => {
                         <ShippingInformations getInputValue={getInputValue} nextCart={nextCart} />
                     : null}
                     {currentPage === 2 ?
-                        <Payments />
+                        <Payments setSelectedPayment={setSelectedPayment} selectedPayment={selectedPayment} />
                     : null}
                 </Form>
             </Wrapper>

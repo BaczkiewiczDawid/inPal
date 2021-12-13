@@ -1,4 +1,4 @@
-import { SummaryContainer, InfoContainer, Subtitle, Amount, Button, StyledLink } from './Summary.style';
+import { SummaryContainer, InfoContainer, Subtitle, Amount, Button } from './Summary.style';
 import { Link } from 'react-router-dom';
 
 const Summary = ({ productsPrice, product }) => {
