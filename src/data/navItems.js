@@ -42,9 +42,11 @@ export const navItems = [
     {
         id: 3,
         text: 'Assistance',
+        path: '/assistance'
     },
     {
         id: 4,
         text: 'Contact',
+        path: '/contact'
     }
 ];

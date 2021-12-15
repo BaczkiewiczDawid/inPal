@@ -8,6 +8,7 @@ import Checkout from 'components/templates/Checkout/Checkout';
 import OrderConfirmation from 'components/templates/OrderConfirmation/OrderConfirmation';
 import { ThemeProvider } from 'styled-components';
 import { theme } from 'assets/styles/theme';
+import Assistance from 'components/templates/Assistance/Assistance';
 
 function App() {
   const [shoppingCart, setShoppingCart] = useState([]);
@@ -36,6 +37,7 @@ function App() {
             <Route path="/cart" element={<ShoppingCart shoppingCart={shoppingCart} />} />
             <Route path="/checkout" element={<Checkout inputValues={inputValues} setInputValues={setInputValues} setSelectedPayment={setSelectedPayment} selectedPayment={selectedPayment} />} />
             <Route path="/order-confirmation" element={<OrderConfirmation inputValues={inputValues} selectedPayment={selectedPayment} setShoppingCart={setShoppingCart} />} />
+            <Route path="/assistance" element={<Assistance />} />
           </Routes>
         </ThemeProvider>
       </Router>

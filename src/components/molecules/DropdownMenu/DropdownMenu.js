@@ -49,9 +49,6 @@ const DropdownMenu = ({ id, navigation, isOpen }) => {
             {id === 4 ? 
                 <ColorsWrapper>
                     <StyledSelect isMulti options={colorsList} />
-                    {/* {colorsList.map((color) => (
-                        <ColorPicker color={color.value} />
-                    ))} */}
                 </ColorsWrapper>
             : null}
         </StyledDropdown>
