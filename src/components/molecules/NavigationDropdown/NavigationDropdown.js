@@ -3,6 +3,7 @@ import { navItems } from 'data/navItems';
 import DropdownMenu from 'components/molecules/DropdownMenu/DropdownMenu';
 import useMobile from 'hooks/useMobile';
 import { Dropdown, DropdownButton, DropdownContent, DropdownLink, ArrowDownIcon } from './NavigationDropdown.style';
+import { Link } from 'react-router-dom';
 
 const NavigationDropdown = () => {
     const isMobile = useMobile();
@@ -30,13 +31,13 @@ const NavigationDropdown = () => {
 
     return ( 
         <>
-        {navItems.map(({ id, icon, text}) => (
+        {navItems.map(({ id, icon, text, path}) => (
             <Dropdown>
-                <DropdownButton id={id} onClick={() => handleIsOpen(id)}>{text}{icon ? <ArrowDownIcon src={icon} alt="arrow-down" /> : null}</DropdownButton>
+                {path ? <Link to={path}><DropdownButton id={id} onClick={() => handleIsOpen(id)}>{text}{icon ? <ArrowDownIcon src={icon} alt="arrow-down" /> : null}</DropdownButton></Link> : <DropdownButton id={id} onClick={() => handleIsOpen(id)}>{text}{icon ? <ArrowDownIcon src={icon} alt="arrow-down" /> : null}</DropdownButton>}
                 {(id === 1 || id === 2) && !isMobile ? 
                 <DropdownContent isOpen={!!isOpen[id]}>
                     {navItems[id - 1].subitem.map((item) => (
-                        <DropdownLink>{item.name}</DropdownLink>
+                        <DropdownLink to="/">{item.name}</DropdownLink>
                     ))}
                 </DropdownContent> : null}
                 {(id === 1 || id === 2) && isMobile ?

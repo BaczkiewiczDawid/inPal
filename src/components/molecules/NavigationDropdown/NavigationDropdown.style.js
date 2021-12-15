@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Dropdown = styled.div`
   overflow: hidden;
@@ -32,7 +33,7 @@ export const DropdownContent = styled.div`
   }
 `;
 
-export const DropdownLink = styled.a`
+export const DropdownLink = styled(Link)`
   @media screen and (min-width: 768px) {
     float: none;
     color: black;
