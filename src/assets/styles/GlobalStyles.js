@@ -11,6 +11,10 @@ const GlobalStyle = createGlobalStyle`
         font-family: 'Montserrat', sans-serif;
         overflow-x: hidden;
     }
+
+    h1, h2, h3, h4, h5 p, span, button, input, li {
+        color: #2a2a2a;
+    }
 `;
 
 export default GlobalStyle;

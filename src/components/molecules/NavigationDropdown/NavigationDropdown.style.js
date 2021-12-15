@@ -25,7 +25,7 @@ export const DropdownContent = styled.div`
 
   @media screen and (min-width: 768px) {
     position: absolute;
-    background-color: white;
+    background-color: ${({ theme }) => theme.colors.white};
     min-width: 128px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
@@ -43,7 +43,7 @@ export const DropdownLink = styled.a`
     cursor: pointer;
 
     &:hover {
-      background-color: #dce0dd;
+      background-color: ${({ theme }) => theme.colors.lightgrey};
       transition: .2s;
     }
   }

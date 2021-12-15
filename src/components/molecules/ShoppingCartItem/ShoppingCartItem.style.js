@@ -5,7 +5,7 @@ export const Item = styled.div`
     justify-content: space-between;
     width: 95%;
     height: 7rem;
-    background-color: #fafafa;
+    background-color: ${({ theme }) => theme.colors.white};
     box-shadow: 7px 5px 24px -14px rgba(66, 68, 90, 1);
 
     &:nth-child(n+1) {

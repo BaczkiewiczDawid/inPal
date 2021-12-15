@@ -13,7 +13,7 @@ export const StyledTitle = styled.h1`
 export const StyledInput = styled.input`
     width: 63vw;
     border-radius: 25px;
-    border: 1px solid #B0B0B0;
+    border: 1px solid ${({ theme }) => theme.colors.grey};
     padding: 10px 20px;
 
     @media (min-width: 768px) {
@@ -29,7 +29,7 @@ export const InputWrapper = styled.div`
 `;
 
 export const SearchIcon = styled.img`
-    background-color: #2a2a2a;
+    background-color: #${({ theme }) => theme.colors.black};
     padding: 12px;
     border-radius: 25px;
     margin-left: 1.5rem;

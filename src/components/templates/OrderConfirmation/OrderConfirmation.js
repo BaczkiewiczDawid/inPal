@@ -1,6 +1,9 @@
+import { useEffect } from 'react';
 import Navigation from 'components/organisms/Navigation/Navigation';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import BuyerInformation from 'components/molecules/BuyerInformation/BuyerInformation';
+import PaymentInformation from 'components/molecules/PaymentInformation/PaymentInformation';
 
 const Wrapper = styled.section`
     margin-top: 6rem;
@@ -12,22 +15,12 @@ const Wrapper = styled.section`
     }
 `;
 
-const InformationContainer = styled.div``;
-
-const Header = styled.h1`
-    font-size: 2rem;
-`;
-
 const Subtitle = styled.h2`
     font-size: 1.3rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
 `;
 
-const Paragraph = styled.p`
-    font-size: 1rem;
-    margin-top: .4rem;
-`;
 
 const Button = styled.button`
     padding: 12px 48px;
@@ -48,27 +41,20 @@ const Button = styled.button`
     }
 `;
 
-const OrderConfirmation = ({ inputValues, selectedPayment }) => {
+const OrderConfirmation = ({ inputValues, selectedPayment, setShoppingCart }) => {
+    useEffect(() => {
+        setShoppingCart([]);
+    }, [])
+
     return ( 
         <>
             <Navigation />
             <Wrapper>
-                <InformationContainer>
-                    <Header>Order summary</Header>
-                    <Subtitle>Delivery address</Subtitle>
-                    <div>
-                        <Paragraph>{inputValues.name}</Paragraph>
-                        <Paragraph>{inputValues.address}</Paragraph>
-                        <Paragraph>{inputValues.postcode}</Paragraph>
-                        <Paragraph>{inputValues.phone}</Paragraph>
-                        <Paragraph>{inputValues.email}</Paragraph>
-                    </div>
+                <div>
+                    <BuyerInformation inputValues={inputValues} />
                     <Subtitle>Delivery information</Subtitle>
-                    <div>
-                        <Paragraph>{selectedPayment.shipping}</Paragraph>
-                        <Paragraph>Payment via {selectedPayment.payment}</Paragraph>
-                    </div>
-                </InformationContainer>
+                    <PaymentInformation selectedPayment={selectedPayment} />
+                </div>
             </Wrapper>
             <Link to="/">
                 <Button>Back to home</Button>
