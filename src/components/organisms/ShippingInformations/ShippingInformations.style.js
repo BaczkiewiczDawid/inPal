@@ -26,9 +26,9 @@ export const Label = styled.label`
 export const Input = styled.input`
     width: 90vw;
     border: none;
-    border-bottom: 1px solid #2a2a2a;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.black};
     margin-top: 1rem;
-    color: #2a2a2a;
+    color: ${({ theme }) => theme.colors.black};
 
     @media screen and (min-width: 768px) {
         width: 30vw;
@@ -38,7 +38,7 @@ export const Input = styled.input`
 export const Button = styled.button`
     padding: 12px 48px;
     color: #fafafa;
-    background-color: #2a2a2a;
+    background-color: ${({ theme }) => theme.colors.black};
     border: none;
     font-weight: 700;
     cursor: pointer;

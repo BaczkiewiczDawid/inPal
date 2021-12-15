@@ -73,8 +73,8 @@ export const Option = styled.option`
 export const Button = styled.button`
     width: 80vw;
     padding: 18px 0;
-    background-color: #2a2a2a;
-    color: #fafafa;
+    background-color: ${({ theme }) => theme.colors.black};
+    color: ${({ theme }) => theme.colors.white};
     font-weight: 700;
     border: none;
     border-radius: 100px;

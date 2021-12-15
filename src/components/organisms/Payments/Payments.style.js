@@ -27,8 +27,8 @@ export const TotalContainer = styled.div`
 
 export const Button = styled.button`
     padding: 12px 48px;
-    color: #fafafa;
-    background-color: #2a2a2a;
+    color: ${({ theme }) => theme.colors.white};
+    background-color: ${({ theme }) => theme.colors.black};
     border: none;
     font-weight: 700;
     cursor: pointer;

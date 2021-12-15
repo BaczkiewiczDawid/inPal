@@ -11,8 +11,8 @@ export const SummaryContainer = styled.div`
     width: 100vw;
     min-height: 15vh;
     bottom: 0;
-    border-top: 1px solid #2a2a2a;
-    background-color: #fafafa;
+    border-top: 1px solid ${({ theme }) => theme.colors.black};
+    background-color: ${({ theme }) => theme.colors.white};
 
     @media screen and (min-width: 768px) {
         position: absolute;
@@ -41,8 +41,8 @@ export const Amount = styled.span`
 
 export const Button = styled.button`
     padding: 12px 48px;
-    color: #fafafa;
-    background-color: #2a2a2a;
+    color: ${({ theme }) => theme.colors.white};
+    background-color: ${({ theme }) => theme.colors.black};
     border: none;
     font-weight: 700;
     cursor: pointer;

@@ -8,7 +8,6 @@ export const Icon = styled.img`
 
 export const Link = styled.a`
     text-decoration: none;
-    color: #2a2a2a;
     font-size: 1.5rem;
     cursor: pointer;
 

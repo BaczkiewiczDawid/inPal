@@ -36,7 +36,7 @@ export const Nav = styled.nav`
         align-items: center;
         justify-content: space-between;
         height: 4rem;
-        background-color: #fafafa;
+        background-color: ${({ theme }) => theme.colors.white};
         border-bottom: 1px solid black;
     }
 `;
@@ -153,8 +153,8 @@ export const MenuToggleButton = styled.button`
   top: 20px;
   left: 20px;
   overflow-x: hidden;
-  background-color: white;
-  border: 2px solid black;
+  background-color: ${({ theme }) => theme.colors.white};
+  border: 2px solid ${({ theme }) => theme.colors.black};
   cursor: pointer;
   /* transition: .2s; */
 
@@ -172,7 +172,7 @@ export const MenuToggleButton = styled.button`
       content: '';
       width: 17px;
       height: 3px;
-      background-color: black;
+      background-color: ${({ theme }) => theme.colors.black};
       left: 50%;
     }
 
@@ -201,7 +201,7 @@ export const MenuToggleButton = styled.button`
       content: '';
       width: 25px;
       height: 3px;
-      background-color: black;
+      background-color: ${({ theme }) => theme.colors.black};
       top: 50%;
       left: 50%;
     }

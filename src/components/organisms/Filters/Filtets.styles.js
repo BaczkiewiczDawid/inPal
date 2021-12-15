@@ -22,7 +22,7 @@ export const FiltersWrapper = styled.div`
 display: flex;
 flex-direction: column;
 position: fixed;
-background-color: #fafafa;
+background-color: ${({ theme }) => theme.colors.white};
 top: 0;
 left: 0;
 width: 100vw;
@@ -35,14 +35,15 @@ z-index: 9999;
 export const Button = styled.button`
 width: 90%;
 height: 5rem;
-background-color: #e3ba40;
+background-color: ${({ theme }) => theme.colors.black};
 position: absolute;
 bottom: 1rem;
 margin-left: 50%;
 transform: translateX(-50%);
 border: none;
-color: #dbd7d7;
+color: ${({ theme }) => theme.colors.white};
 font-weight: 700;
+cursor: pointer;
 font-size: 2rem;
 `;
 
