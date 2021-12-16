@@ -1,30 +1,17 @@
+import { useState } from 'react';
 import { StyledDropdown, StyledListItem } from './DropdownMenu.styles';
-import styled from 'styled-components';
+import { SliderWrapper, Title, StyledSlider, ColorsWrapper, StyledSelect } from './DropdownMenu.styles';
 import colorsList from 'data/colorsList';
-import Select from 'react-select';
 
-const ColorsWrapper = styled.div`
-    width: auto;
-    height: auto;
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 70vw;
-    margin-left: -1.5rem;
 
-    @media screen and (min-width: 768px) {
-        max-width: 15vw;
-    }
-`;
-
-const StyledSelect = styled(Select)`
-    width: 70vw;
-
-    @media screen and (min-width: 768px) {
-        width: 15vw;
-    }
-`;
 
 const DropdownMenu = ({ id, navigation, isOpen }) => {
+    const [value, setValue] = useState([0, 100]);
+
+    const rangeSelector = (e, newValue) => {
+        setValue(newValue);
+    }
+
     return (    
         <StyledDropdown navigation={navigation} isOpen={isOpen}>
             {id === 1 ?
@@ -44,7 +31,10 @@ const DropdownMenu = ({ id, navigation, isOpen }) => {
                 </>
             : null }
             {id === 3 ? 
-                <input type="range" min="0" max="2000" />
+                <SliderWrapper>
+                    <Title>Select price range</Title>
+                    <StyledSlider value={value} onChange={rangeSelector} valueLabelDisplay="auto" />
+                </SliderWrapper>
             : null} 
             {id === 4 ? 
                 <ColorsWrapper>
