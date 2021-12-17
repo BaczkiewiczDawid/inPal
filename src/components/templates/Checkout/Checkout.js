@@ -3,6 +3,7 @@ import Navigation from 'components/organisms/Navigation/Navigation';
 import styled from 'styled-components';
 import Payments from 'components/organisms/Payments/Payments';
 import ShippingInformations from 'components/organisms/ShippingInformations/ShippingInformations';
+import ShoppingCartItem from 'components/molecules/ShoppingCartItem/ShoppingCartItem';
 
 const Wrapper = styled.div`
     display: flex;
@@ -25,14 +26,30 @@ const Form = styled.form`
     margin-bottom: 15vh;
 
     @media screen and (min-width: 768px) {
-        align-items: flex-start;
-        justify-content: flex-start;
-        margin-left: 2rem;
-        margin-top: 3rem;
+        align-items: center;
+        justify-content: center;
+        margin: 3rem auto;
     }
 `;
 
-const Checkout = ({ inputValues, setInputValues, setSelectedPayment, selectedPayment }) => {
+const Item = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90vw;
+
+    @media screen and (min-width: 768px) {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+`;
+
+const Container = styled.div`
+    margin-top: 3rem;
+`;
+
+const Checkout = ({ inputValues, setInputValues, setSelectedPayment, selectedPayment, finalProductsList }) => {
     const [currentPage, setCurrentPage] = useState(1)
 
     const getInputValue = (e) => {
@@ -56,10 +73,24 @@ const Checkout = ({ inputValues, setInputValues, setSelectedPayment, selectedPay
             <Wrapper>
                 <Form>
                     {currentPage === 1 ? 
+                    <Item>
                         <ShippingInformations getInputValue={getInputValue} nextCart={nextCart} />
+                        <Container>
+                            {finalProductsList.map((item) => (
+                                <ShoppingCartItem item={item} />
+                            ))}
+                        </Container>
+                    </Item>
                     : null}
                     {currentPage === 2 ?
+                    <Item>
                         <Payments setSelectedPayment={setSelectedPayment} selectedPayment={selectedPayment} />
+                        <Container>
+                            {finalProductsList.map((item) => (
+                                <ShoppingCartItem item={item} />
+                            ))}
+                        </Container>
+                    </Item>
                     : null}
                 </Form>
             </Wrapper>
