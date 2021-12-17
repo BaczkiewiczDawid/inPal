@@ -5,12 +5,11 @@ const Payments = ({ selectedPayment, setSelectedPayment }) => {
     const paymentMethods = [
         {
             name: 'Blik',
+            checked: true
         },
         {
-            name: 'Przelewy24'
-        },
-        {
-            name: 'Cash'
+            name: 'Przelewy24',
+            checked: false
         }
     ]
 
@@ -29,22 +28,12 @@ const Payments = ({ selectedPayment, setSelectedPayment }) => {
                     name: 'TNT',
                     price: 4.99
                 }
-            ],
-
-            cash: [
-                {
-                    name: 'DHL',
-                    price: 6.99
-                },
-                {
-                    name: 'DPD',
-                    price: 6.99
-                },
             ]
         }
     ]
 
     const handleSetPayment = (e) => {
+        e.preventDefault();
         setSelectedPayment({
             ...selectedPayment,
             [e.target.name]: e.target.value
@@ -63,13 +52,6 @@ const Payments = ({ selectedPayment, setSelectedPayment }) => {
             <Title secondary>Shipping Method</Title>
             <Label>Payment online</Label>
             {shippingMethods[0].online.map((el) => (
-                <PaymentContainer>
-                    <Label>{el.name}</Label>
-                    <RadioButton type="radio" name="shipping" value={el.name} onClick={(e) => handleSetPayment(e)} />
-                </PaymentContainer>
-            ))}
-            <Label primary>Cash on delivery</Label>
-            {shippingMethods[0].cash.map((el) => (
                 <PaymentContainer>
                     <Label>{el.name}</Label>
                     <RadioButton type="radio" name="shipping" value={el.name} onClick={(e) => handleSetPayment(e)} />

@@ -23,6 +23,10 @@ export const RadioButton = styled.input`
 export const TotalContainer = styled.div`
     width: 95vw;
     margin-left: 1rem;
+
+    @media screen and (min-width: 768px) {
+        width: 30vw;
+    }
 `;
 
 export const Button = styled.button`

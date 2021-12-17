@@ -1,4 +1,4 @@
-import { Input, Button, Label } from './ShippingInformations.style';
+import { Input, Button, Label, Wrapper } from './ShippingInformations.style';
 
 const ShippingInformations = ({ getInputValue, nextCart }) => {
     const requiredInformations = [
@@ -30,7 +30,7 @@ const ShippingInformations = ({ getInputValue, nextCart }) => {
     ]
 
     return ( 
-        <>
+        <Wrapper>
         {requiredInformations.map((el) => (
             <>
                 <Label>{el.label}</Label>
@@ -38,7 +38,7 @@ const ShippingInformations = ({ getInputValue, nextCart }) => {
             </>
         ))}
         <Button onClick={nextCart}>Next</Button>    
-    </>
+    </Wrapper>
      );
 }
  

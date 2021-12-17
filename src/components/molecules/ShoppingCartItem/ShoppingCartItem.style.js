@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Item = styled.div`
     display: flex;
     justify-content: space-between;
-    width: 95%;
+    width: 95vw;
     height: 7rem;
     background-color: ${({ theme }) => theme.colors.white};
     box-shadow: 7px 5px 24px -14px rgba(66, 68, 90, 1);

@@ -12,6 +12,7 @@ import Assistance from 'components/templates/Assistance/Assistance';
 
 function App() {
   const [shoppingCart, setShoppingCart] = useState([]);
+  const [finalProductsList, setFinalProductsList] = useState([]);
 
   const [inputValues, setInputValues] = useState({
     name: '',
@@ -34,8 +35,8 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route path="/item/:id" element={<Item shoppingCart={shoppingCart} setShoppingCart={setShoppingCart} />} />
-            <Route path="/cart" element={<ShoppingCart shoppingCart={shoppingCart} />} />
-            <Route path="/checkout" element={<Checkout inputValues={inputValues} setInputValues={setInputValues} setSelectedPayment={setSelectedPayment} selectedPayment={selectedPayment} />} />
+            <Route path="/cart" element={<ShoppingCart shoppingCart={shoppingCart} finalProductsList={finalProductsList} setFinalProductsList={setFinalProductsList} />} />
+            <Route path="/checkout" element={<Checkout inputValues={inputValues} setInputValues={setInputValues} setSelectedPayment={setSelectedPayment} selectedPayment={selectedPayment} finalProductsList={finalProductsList} />} />
             <Route path="/order-confirmation" element={<OrderConfirmation inputValues={inputValues} selectedPayment={selectedPayment} setShoppingCart={setShoppingCart} />} />
             <Route path="/assistance" element={<Assistance />} />
           </Routes>

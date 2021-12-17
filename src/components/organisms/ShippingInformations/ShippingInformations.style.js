@@ -53,3 +53,8 @@ export const Button = styled.button`
         margin-top: 4rem;
     }
 `;
+
+export const Wrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
