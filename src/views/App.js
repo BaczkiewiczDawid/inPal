@@ -9,6 +9,7 @@ import OrderConfirmation from 'components/templates/OrderConfirmation/OrderConfi
 import { ThemeProvider } from 'styled-components';
 import { theme } from 'assets/styles/theme';
 import Assistance from 'components/templates/Assistance/Assistance';
+import MyAccount from 'components/templates/MyAccount/MyAccount';
 
 function App() {
   const [shoppingCart, setShoppingCart] = useState([]);
@@ -39,6 +40,7 @@ function App() {
             <Route path="/checkout" element={<Checkout inputValues={inputValues} setInputValues={setInputValues} setSelectedPayment={setSelectedPayment} selectedPayment={selectedPayment} finalProductsList={finalProductsList} />} />
             <Route path="/order-confirmation" element={<OrderConfirmation inputValues={inputValues} selectedPayment={selectedPayment} setShoppingCart={setShoppingCart} />} />
             <Route path="/assistance" element={<Assistance />} />
+            <Route path="/my-account" element={<MyAccount />} />
           </Routes>
         </ThemeProvider>
       </Router>

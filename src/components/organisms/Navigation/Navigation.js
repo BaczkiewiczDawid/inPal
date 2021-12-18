@@ -7,9 +7,12 @@ import { Nav, MenuToggleButton, LinkItem, Container, CartIcon, NavList, Logo } f
 import useMobile from 'hooks/useMobile';
 import NavigationLink from 'components/atoms/NavigationLink/NavigationLink';
 import NavigationDropdown from 'components/molecules/NavigationDropdown/NavigationDropdown';
+import Login from 'components/atoms/Login/Login'
+import { useAuth0 } from '@auth0/auth0-react';
 
 const Navigation = () => {
     const [isNavigationOpen, setIsNavigationOpen] = useState(false);
+    const { isAuthenticated } = useAuth0();
     
     const isMobile = useMobile();
 
@@ -30,7 +33,7 @@ const Navigation = () => {
                     <LinkItem to="/cart">
                         <CartIcon src={shoppingCart} alt="Shopping cart" />
                     </LinkItem>
-                    <NavigationLink text={'My account'} icon={arrowDown} />
+                    {isAuthenticated ? <NavigationLink text={'My account'} icon={arrowDown} link={'/my-account'} /> : <Login /> }
                 </Container>
             </Nav>
         </>

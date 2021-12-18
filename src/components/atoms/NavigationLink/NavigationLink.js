@@ -1,9 +1,9 @@
-import { Link } from './NavigationLink.style';
+import { Link, StyledLink } from './NavigationLink.style';
 
 const NavigationLink = ({ text, link, onClick, icon, id }) => {
     return ( 
         <Link id={id}>
-            <a href={link} onClick={onClick}>{text}</a>
+            <StyledLink href={link} onClick={onClick}>{text}</StyledLink>
             {icon ? <i src={icon}></i> : null}
         </Link>
      );
