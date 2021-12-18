@@ -43,10 +43,10 @@ const Payments = ({ selectedPayment, setSelectedPayment }) => {
     return ( 
         <TotalContainer>
             <Title>Payment Method</Title>
-            {paymentMethods.map((el) => (
-                <PaymentContainer>
+            {paymentMethods.map((el, i) => (
+                <PaymentContainer key={i}>
                     <Label>{el.name}</Label>
-                    <RadioButton type="radio" name="payment" value={el.name} onClick={(e) => handleSetPayment(e)} />
+                    <RadioButton type="radio" name="payment" value={el.name} onClick={(e) => handleSetPayment(e)} checked={el.checked} />
                 </PaymentContainer>
             ))}
             <Title secondary>Shipping Method</Title>
