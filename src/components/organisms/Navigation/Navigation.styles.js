@@ -98,7 +98,7 @@ export const LinkItem = styled(Link)`
     }
 
     @media screen and (min-width: 1024px) {
-        font-size: 1.2rem;
+        font-size: 1rem;
 
         &:nth-child(n+2) {
             margin-left: 3rem;

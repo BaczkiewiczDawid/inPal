@@ -33,7 +33,7 @@ const Navigation = () => {
                     <LinkItem to="/cart">
                         <CartIcon src={shoppingCart} alt="Shopping cart" />
                     </LinkItem>
-                    {isAuthenticated ? <NavigationLink text={'My account'} icon={arrowDown} link={'/my-account'} /> : <Login /> }
+                    {isAuthenticated ? <LinkItem to='/my-account'>My Account</LinkItem> : <Login /> }
                 </Container>
             </Nav>
         </>
